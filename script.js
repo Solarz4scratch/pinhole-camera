@@ -19,6 +19,6 @@ function calculateDistance() {
 
   // Output distance
   var outputElement = document.getElementById('output');
-  outputElement.innerHTML = "Distance: " + distance + " cm";
+  outputElement.innerHTML = "Distance: " + distance + " m";
   outputElement.style.display = 'block'; // Show the output
 }
