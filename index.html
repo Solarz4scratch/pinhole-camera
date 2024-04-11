@@ -17,8 +17,24 @@
       <label for="height">Height of the subject (m):</label>
       <input type="number" id="height" placeholder="Enter height">
     </div>
+    <div class="input-container">
+      <label for="subjectElevation">Subject elevation (m, optional):</label>
+      <input type="number" id="subjectElevation" placeholder="Enter elevation">
+    </div>
+    <div class="input-container">
+      <label for="cameraElevation">Camera elevation (m, optional):</label>
+      <input type="number" id="cameraElevation" placeholder="Enter elevation">
+    </div>
     <button onclick="calculateDistance()">Calculate distance</button>
-    <div id="output" style="display: none;"></div>
+    <div id="output" style="display: none;">
+      <!-- Output distance -->
+      <div id="distanceOutput"></div>
+      <!-- Frame with subject inside -->
+      <div id="previewText">Preview of picture (red is subject, white is background):</div>
+      <div id="frame">
+        <div id="subject"></div>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
