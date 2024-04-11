@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-image: url('https://wallpapers.com/images/hd/dynamic-blue-geometric-triangles-7ynx1u1jkbjylwrk.jpg');
+  background-image: url("blue_background.jpg");
   background-size: cover;
   background-position: center; /* Centers the background image */
   background-repeat: no-repeat; /* Prevents the background image from repeating */
