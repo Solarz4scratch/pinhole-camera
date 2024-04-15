@@ -1,3 +1,8 @@
+var advancedShown = 0;
+var outputShown = 0;
+var outputHeight = 50;
+var advancedHeight = 25;
+
 function calculateDistance() {
   // Step 1: Initialize constant values and input variables
   var h1 = 2 * 0.0254; // half of 4 inches in meters
@@ -10,6 +15,7 @@ function calculateDistance() {
   var a1 = parseFloat(document.getElementById('cameraElevation').value); // Camera elevation
   var a2 = parseFloat(document.getElementById('subjectElevation').value); // Subject elevation
   var margin = parseFloat(document.getElementById('marginPercentage').value); 
+  
 
   // Check if either width or height is blank
   if (!widthInput.value || !heightInput.value) {
@@ -23,6 +29,10 @@ function calculateDistance() {
     document.getElementById('frame').style.display = 'none';
     document.getElementById('subject').style.display = 'none';
     document.getElementById('previewText').style.display = 'none';
+
+    outputShown = 1;
+    outputHeight = 20;
+    document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
     
     return; // Exit the function early
   }
@@ -64,6 +74,10 @@ function calculateDistance() {
     document.getElementById('frame').style.display = 'none';
     document.getElementById('subject').style.display = 'none';
     document.getElementById('previewText').style.display = 'none';
+
+    outputShown = 1;
+    outputHeight = 20;
+    document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
     
     return; // Exit the function early
   }
@@ -81,8 +95,6 @@ function calculateDistance() {
 
   // Step 4: Determine output based on greater value of d2height and d2width
 
-  console.log(delta_d);
-  console.log();
   var outputDistance;
   if (d2height > d2width) {
     outputDistance = d2height;
@@ -121,10 +133,16 @@ function calculateDistance() {
   distanceOutput.innerHTML = "Distance: " + outputDistance.toFixed(2) + " m";
   distanceOutput.style.color = '#4CAF50'; // Change text color to green
 
+
+
   // Show frame and subject elements
   document.getElementById('frame').style.display = 'block';
   document.getElementById('subject').style.display = 'block';
   document.getElementById('previewText').style.display = 'block';
+
+  outputShown = 1;
+  outputHeight = 50;
+  document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
 }
 
 function openInfoPopup() {
@@ -144,11 +162,18 @@ function closeInfoPopup() {
 function toggleAdvancedOptions() {
   var advancedOptions = document.getElementById('advancedOptions');
   var advancedOptionsToggle = document.getElementById('advancedOptionsToggle');
-  if (advancedOptions.style.display === 'none') {
+  if (advancedOptions.style.display == 'none') {
     advancedOptions.style.display = 'block';
     advancedOptionsToggle.textContent = 'Hide advanced options';
+
+    advancedShown = 1;
+    document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh"
   } else {
     advancedOptions.style.display = 'none';
     advancedOptionsToggle.textContent = 'Show advanced options';
+    
+    advancedShown = 0;
+    document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh"
   }
+
 }
