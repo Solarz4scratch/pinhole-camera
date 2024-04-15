@@ -1,0 +1,209 @@
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  background-image: url("blue_background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 170vh;
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto; /* Adjusted top and bottom margin */
+  padding: 30px; /* Adjusted padding */
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index:1;
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 20px; /* Adjusted bottom margin */
+}
+
+.input-container {
+  margin-bottom: 15px; /* Adjusted margin */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px; /* Adjusted margin */
+  color: #555;
+  font-size: 20px;
+}
+
+input[type="number"] {
+  width: calc(100% - 10px);
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#output {
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#distanceOutput {
+  font-size: 40px;
+  font-weight: bold;
+  color: #4CAF50; /* Green color */
+  margin-bottom: 20px;
+}
+
+#frame {
+  width: var(--frameWidth);
+  height: var(--frameHeight);
+  border: 2px solid black;
+  position: relative;
+  margin: 0 auto; /* Center the frame horizontally */
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#subject {
+  background-color: red; /* Subject color */
+  position: absolute;
+  top: 50%;
+  left: 50%; /* Add left: 50% to move the subject's left edge to the center of its container */
+  transform: translate(-50%, -50%) translateY(calc(var(--subjectYDisplacement)*var(--frameHeight)));
+  height: calc(var(--subjectHeight)*var(--frameHeight));
+  width: calc(var(--subjectWidth)*var(--frameHeight));
+}
+
+#previewText {
+  text-align: center;
+  font-size: 17px;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 10px; /* Adjust the bottom margin */
+}
+
+#particles-js {
+  position:absolute;
+  top:0;
+  width: 100%;
+  height:170%;
+  z-index:-1;
+}
+
+#infoButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: #e4e4e4;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s; /* Add transition for smooth hover effect */
+}
+
+/* Change the button color on hover */
+#infoButton:hover {
+  background-color: #999; /* Darker shade of gray */
+}
+
+/* Style the overlay */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent gray color */
+  z-index: 998; /* Place it below the info popup */
+}
+
+/* Style the info popup */
+#infoPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+  width: 500px; /* Set the width of the info box */
+  height: 420px; /* Set the height of the info box */
+  padding: 50px; /* Add padding for content */
+  padding-top: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 999;
+  font-size:20px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  top: 20px; /* Adjust top position */
+  right: 20px; /* Adjust right position */
+  font-size: 32px; /* Increase font size for a bigger X */
+  color: #aaa;
+  cursor: pointer;
+  z-index: 1000; /* Ensure it's on top of the info box */
+  width: 40px; /* Increase width for a fatter X */
+  height: 40px; /* Increase height for a fatter X */
+  line-height: 40px; /* Center the X vertically */
+  text-align: center; /* Center the X horizontally */
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#ground {
+  background-color: blue; /* Blue color */
+  position: absolute;
+  bottom: 0; /* Place it at the bottom of the frame */
+  left: 0;
+  width: 100%; /* Make it span the entire width of the frame */
+  height: calc(var(--groundHeight)*var(--frameHeight)); /* Adjust height as needed */
+}
+
+/* Style the advanced options toggle */
+#advancedOptionsToggle {
+  color: #007bff; /* Blue color */
+  text-decoration: underline; /* Underline text */
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin-bottom:10px;
+}
+
+/* Change the appearance when the advanced options are visible */
+#advancedOptionsToggle.active {
+  color: #dc3545; /* Red color */
+}

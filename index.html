@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Camera Position Calculator</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="particles-js"></div>
   <div class="container">
+    
     <h1>Pinhole Camera Position Calculator</h1>
     <div class="input-container">
       <label for="width">Width of the subject (m):</label>
@@ -25,18 +30,49 @@
       <label for="cameraElevation">Camera elevation (m, optional):</label>
       <input type="number" id="cameraElevation" placeholder="Enter elevation">
     </div>
+
+    <div id="advancedOptionsToggle" onclick="toggleAdvancedOptions()">Show advanced options</div>
+    <div id="advancedOptions" style="display: none;">
+      <div class="input-container">
+        <label for="cameraLength">Length of the camera (in, optional):</label>
+        <input type="number" id="cameraLength" placeholder="Enter length">
+      </div>
+      <div class="input-container">
+        <label for="marginPercentage">Margin Percentage (%, optional):</label>
+        <input type="number" id="marginPercentage" placeholder="Enter margin percentage">
+      </div>
+    </div>
     <button onclick="calculateDistance()">Calculate distance</button>
     <div id="output" style="display: none;">
       <!-- Output distance -->
       <div id="distanceOutput"></div>
       <!-- Frame with subject inside -->
-      <div id="previewText">Preview of picture (red is subject, white is background):</div>
+      <div id="previewText">Preview of picture (red is subject, blue is ground, white is background):</div>
       <div id="frame">
+        <div id="ground"></div>
         <div id="subject"></div>
+      </div>      
+    </div>
+    <div id="infoButton" onclick="openInfoPopup()">i</div>
+    <div id="infoPopup" style="display: none;">
+      <div id="infoContent">
+        <span onclick="closeInfoPopup()" class="close">&times;</span>
+        <p><b>Width of subject</b></p>
+        <p>The widest horizontal length of the face of the subject you want to capture</p>
+        <p><b>Height of subject</b></p>
+        <p>The tallest vertical length of the face of the subject you want to capture</p>
+        <p><b>Subject elevation</b></p>
+        <p>The height from the bottom-most point of the subject's face you want to capture from the ground</p>
+        <p><b>Camera elevation</b></p>
+        <p>The height from the bottom of the camera</p>
       </div>
     </div>
+    <div id="overlay" style="display: none;" onclick="closeInfoPopup()"></div> <!-- Overlay element -->
   </div>
-
   <script src="script.js"></script>
+
+  
+  <script type="text/javascript" src="particles.js"></script>
+  <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
