@@ -33,6 +33,7 @@ function calculateDistance() {
     outputShown = 1;
     outputHeight = 20;
     document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
+    document.getElementById("particles-js").style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
     
     return; // Exit the function early
   }
@@ -50,7 +51,7 @@ function calculateDistance() {
   }
 
   if (!d1 && d1 !== 0) {
-    d1 = 5 * 0.0254; // 5 inches in meters
+    d1 = 4.5 * 0.0254; // 4.5 inches in meters
     document.getElementById('cameraLength').value = d1 / 0.0254; // Set the input field value
   } else {
     d1 = d1 * 0.0254;
@@ -78,6 +79,7 @@ function calculateDistance() {
     outputShown = 1;
     outputHeight = 20;
     document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
+    document.getElementById("particles-js").style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
     
     return; // Exit the function early
   }
@@ -143,6 +145,7 @@ function calculateDistance() {
   outputShown = 1;
   outputHeight = 50;
   document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
+  document.getElementById("particles-js").style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
 }
 
 function openInfoPopup() {
@@ -167,13 +170,15 @@ function toggleAdvancedOptions() {
     advancedOptionsToggle.textContent = 'Hide advanced options';
 
     advancedShown = 1;
-    document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh"
+    document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
+    document.getElementById("particles-js").style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
   } else {
     advancedOptions.style.display = 'none';
     advancedOptionsToggle.textContent = 'Show advanced options';
     
     advancedShown = 0;
-    document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh"
+    document.body.style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
+    document.getElementById("particles-js").style.height = (100 + advancedShown * advancedHeight + outputShown * outputHeight).toString() + "vh";
   }
 
 }
